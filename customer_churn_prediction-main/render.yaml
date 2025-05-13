@@ -2,9 +2,9 @@ services:
   - type: web
     name: churn-predictor
     runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
-    repo: https://github.com/your-username/your-repo-name
+    repo: https://github.com/vk0595429/Customer-Churn-Prediction
     branch: main
+    buildCommand: pip install -r file/requirements.txt
+    startCommand: gunicorn file.app:app
     region: oregon
     plan: free
