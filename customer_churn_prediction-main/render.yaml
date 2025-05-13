@@ -4,7 +4,7 @@ services:
     runtime: python
     repo: https://github.com/vk0595429/Customer-Churn-Prediction
     branch: main
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r customer_churn_prediction-main/requirements.txt
     startCommand: gunicorn app:app
     region: oregon
     plan: free
