@@ -1,6 +1,14 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import pickle
+import os
+import gdown
+
+# Download best_model.pkl from Google Drive if it doesn't exist
+if not os.path.exists("best_model.pkl"):
+    file_id = "13jGPzj4HVBsm16d781fvi7hKnapDZ1wV"
+    url = f"https://drive.google.com/uc?id={file_id}"
+    gdown.download(url, "best_model.pkl", quiet=False)
 
 # Load model, encoders, and scaler
 with open('best_model.pkl', 'rb') as model_file:
@@ -9,6 +17,7 @@ with open('encoder.pkl', 'rb') as encoders_file:
     encoders = pickle.load(encoders_file)
 with open('scaler.pkl', 'rb') as scaler_file:
     scaler_data = pickle.load(scaler_file)
+
 
 app = Flask(__name__)
 
